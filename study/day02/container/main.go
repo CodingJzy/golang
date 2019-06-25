@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/list"
 	"fmt"
 	"sync"
 )
@@ -166,10 +167,57 @@ func testMap() {
 	sm.Delete(1)
 
 	// 遍历
-	sm.Range(func (k, v interface{}) bool {
+	sm.Range(func(k, v interface{}) bool {
 		fmt.Println(k, v)
 		return true
 	})
+}
+
+func testList() {
+	// 在Go语言中, 和Python的列表也是有相同点的，都可以同时存储不同的数据类型
+	// 通过container/list包来实现，内部实现的原理的双链表，能高效的进行任意位置的元素插入和删除操作
+
+	// 列表的初始化
+	// 通过container/list包的New方法初始化list
+	l1 := list.New()
+	// 通过声明初始化list
+	var l2 list.List
+
+	// 在列表中插入元素
+	// 从尾部开始插入
+	l1.PushBack("first")
+	// 从头部开始插入
+	l1.PushFront(67)
+	// 添加的元素为列表
+	l3 := list.New()
+	l4 := list.New()
+	l3.PushBack(1)
+	l3.PushBack(2)
+	l1.PushBackList(l3)
+	l1.PushFrontList(l4)
+
+	// 在列表中删除元素
+	l2.PushBack(1)
+	l2.PushBack(2)
+	// 尾部添加后保存元素句柄
+	ele := l2.PushBack(4)
+	// 在元素4后面加入5
+	l2.InsertAfter(5, ele)
+	// 在元素4前面加入3
+	l2.InsertBefore(3, ele)
+	// 删除
+	l2.Remove(ele)
+
+	// 列表的遍历
+	// 遍历双链表需要配合front()函数获取头元素，遍历时，只要不为空就一直继续下去。每一次遍历调用next
+	for i := l2.Front(); i != nil; i = i.Next() {
+		fmt.Println(i.Value)
+	}
+
+	for j := l1.Front(); j != nil; j = j.Next() {
+		fmt.Println(j.Value)
+	}
+
 }
 
 func main() {
@@ -182,6 +230,9 @@ func main() {
 	// testSlice()
 
 	// map
-	testMap()
+	// testMap()
+
+	// list
+	testList()
 
 }
