@@ -176,7 +176,7 @@ func testAnonymous() {
 }
 
 func main() {
-	fmt.Println("结构体")
+	fmt.Println("结构体1")
 
 	// 结构体简介
 	// testDesc()
