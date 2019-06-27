@@ -146,7 +146,7 @@ func testPtr() {
 	// 打印ptr取到的地址值
 	fmt.Printf("ptr 地址值为：%p\n", ptr)
 
-	// 对ptr指针变量渠道的地址值进行取值操作
+	// 对ptr指针变量取到的地址值进行取值操作
 	value := *ptr
 
 	fmt.Printf("%s 类型为：%T\n", value, value)
