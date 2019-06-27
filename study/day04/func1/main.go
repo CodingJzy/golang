@@ -259,7 +259,7 @@ func testArgs() {
 var skillParam = flag.String("skill", "", "skill to perform")
 
 func main() {
-	fmt.Println("函数")
+	fmt.Println("函数基础")
 
 	// 声明函数
 	// testDeclare()
@@ -277,12 +277,4 @@ func main() {
 
 	// 可变参数---参数数量不固定的函数形式
 	// testArgs()
-
-	// 延迟执行语句(defer)
-
-	// 处理运行时发生的错误
-
-	// 宕机(panic)---程序终止运行
-
-	// 宕机恢复(recover)---防止程序崩溃
 }
