@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func testSuanShu() {
 	n1 := 100
 	n2 := 200
 	fmt.Println("相加", n1+n2)
@@ -15,4 +15,28 @@ func main() {
 	fmt.Println("自增", n1)
 	n2--
 	fmt.Println("自减", n2)
+}
+
+func testGuanxi() {
+	n1 := 1
+	n2 := 2
+
+	fmt.Println(n1 == n2)
+	fmt.Println(n1 > n2)
+	fmt.Println(n1 < n2)
+	fmt.Println(n1 >= n2)
+	fmt.Println(n1 <= n2)
+	fmt.Println(n1 != n2)
+}
+
+func main() {
+
+	// 算术运算符
+	// testSuanShu()
+
+	// 关系运算符
+	testGuanxi()
+
+	// 逻辑运算符
+
 }
