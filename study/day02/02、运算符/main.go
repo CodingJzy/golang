@@ -29,14 +29,25 @@ func testGuanxi() {
 	fmt.Println(n1 != n2)
 }
 
+func testLuoji() {
+	b1 := true
+	b2 := false
+
+	fmt.Println(b1 && b2)
+	fmt.Println(b1 || b2)
+	fmt.Println(!b1)
+	fmt.Println(!b2)
+}
+
 func main() {
 
 	// 算术运算符
 	// testSuanShu()
 
 	// 关系运算符
-	testGuanxi()
+	// testGuanxi()
 
 	// 逻辑运算符
+	testLuoji()
 
 }
