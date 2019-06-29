@@ -34,6 +34,7 @@ func testPrintf() {
 	fmt.Printf("字符串：%T   整数：%T   小数：%T   布尔：%T  切片：%T   字典：%T\n", s, i, f, b, slice, mp)
 	// %%：打印百分号
 	fmt.Printf("今天90%%会下雨\n")
+	// %p :值得内存地址，指针地址
 
 	// 布尔型
 	fmt.Printf("the bool is %t\n", b)
