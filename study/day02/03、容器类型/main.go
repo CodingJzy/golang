@@ -50,7 +50,7 @@ func testArray() {
 
 func testSlice() {
 	// 这和python的切片类似, 顾头不顾尾。是一种引用类型，他的内部结构包含地址、长度(len：当前切片内的元素个数)、容量(cap：底层数组的容下的最大元素数)
-    // 切片必须初始化或者append()才能使用
+	// 切片必须初始化或者append()才能使用
 	var t3 = [...]float64{1.1, 1.2, 1.3}
 
 	// 从数组得到切片
@@ -141,7 +141,13 @@ func testSlice() {
 func testMap() {
 	// 定义：map [keyType] valueType
 	// 其实和python中的字典类似 key-value结构
-	dic1 := make(map[string]int)
+	// 和切片一样，是引用类型，不初始化无法使用
+
+	// 声明没初始化。值就是为nil
+	var dic map[string]int
+	fmt.Println(dic == nil, dic)
+	// 初始化
+	dic1 := make(map[string]int, 8)
 	dic1["age"] = 23
 	dic1["money"] = 5201314
 	fmt.Println(dic1)
@@ -262,10 +268,10 @@ func main() {
 	// testArray()
 
 	// 切片
-	testSlice()
+	// testSlice()
 
 	// map
-	// testMap()
+	testMap()
 
 	// list
 	// testList()
