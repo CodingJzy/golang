@@ -116,6 +116,7 @@ func (m MyInt) Add(other int) int {
 
 func testTypeMethod() {
 	// go语言可以对任何一中类型添加方法。给一种类型添加方法就像给结构体添加方法一样。
+	// 注意：非本地类型不能定义方法，也就是说我们不能给别的包的类型定义方法。
 
 	// 定义一个Myint类型 b = 0
 	var b MyInt
@@ -131,13 +132,13 @@ func testTypeMethod() {
 func main() {
 	fmt.Println("结构体2")
 	// 多种方式创建和初始化结构体---模拟构造函数重载
-	// testReolad()
+	//testReolad()
 
 	// 带有父子关系的结构体的构造和初始化
-	// testParent()
+	testParent()
 
 	// 方法
-	// testMethod()
+	testMethod()
 
 	// 为类型添加方法
 	testTypeMethod()
