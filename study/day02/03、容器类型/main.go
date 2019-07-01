@@ -7,9 +7,10 @@ import (
 )
 
 func testArray() {
-	// 数组：固定大小的连续空间
+	// 数组：固定大小的连续空间，同一种数据类型的集合。不能混用，和Python这种动态语言有点区别。
 
 	// 声明数组：var 数组变量名 [元素数量]类型
+	// 数组长度在声明时已经确定，或者编译器确定了。后期不能修改大小。
 	var team [4]string
 	team[0] = "Linux"
 	team[1] = "Python"
@@ -17,26 +18,42 @@ func testArray() {
 	team[3] = "Go"
 	fmt.Println(team)
 
+	// 声明并初始化一个空数组
 	team1 := []string{}
 	fmt.Println(team1)
 
-	// 初始化数组
+	// 声明并初始化数组
 	t1 := [4]string{"a", "b", "c", "d"}
 	// 让编译器确定数组长度
 	t2 := [...]int{1, 2, 3, 4}
-	fmt.Println(t1, t2)
+	fmt.Println(t1)
+	fmt.Println(t2)
+
+	// 通过索引初始化
+	t3 := [4]int{1: 1, 2: 2}
+	fmt.Println(t3)
 
 	// 数组的遍历  for range, k 为索引, v 为索引值
 	for k, v := range t1 {
 		fmt.Println(k, v)
 	}
 
+	// 练习1：求数组内的和
+	array1 := [...]int{1, 3, 5, 7, 8}
+	var sum int
+	for _, v := range array1 {
+		sum += v
+	}
+	fmt.Println("-------练习1：求和--------", sum)
+
 }
 
 func testSlice() {
-	// 这和python的切片类似, 顾头不顾尾
-
+	// 这和python的切片类似, 顾头不顾尾。是一种引用类型，他的内部结构包含地址、长度(len：当前切片内的元素个数)、容量(cap：底层数组的容下的最大元素数)
+	// 切片必须初始化或者append()才能使用
 	var t3 = [...]float64{1.1, 1.2, 1.3}
+
+	// 从数组得到切片
 	fmt.Println(t3[1:])
 
 	t4 := [30]int{}
@@ -82,7 +99,8 @@ func testSlice() {
 	fmt.Println(len(slice5))
 
 	// append()：为切片添加元素
-	// 当切片容量不够时，可以通过append()扩容，扩容规律按两倍数扩充：1,2,4...
+	// 当切片容量不够时，可以通过append()扩容，最简单的扩容规律按两倍数扩充：1,2,4...
+	// 扩容规律还有其他情况，这里暂不讨论
 	var slice6 []int
 	for i := 0; i < 20; i++ {
 		slice6 = append(slice6, i)
@@ -99,14 +117,37 @@ func testSlice() {
 	slice6 = append(slice6, slice7...)
 	fmt.Println(slice6)
 
+	// 拷贝切片：切片是引用类型
+	slice8 := []int{100, 200, 300}
+	slice9 := slice8
+
+	slice10 := make([]int, 3, 3)
+	copy(slice10, slice8)
+	slice10[2] = 250
+	slice9[2] = 200
+	fmt.Println(slice8)
+	fmt.Println(slice9)
+	fmt.Println(slice10)
+
 	// go 语言本身没有对删除切片提供专用的语法或者接口，需要使用切片本身的特性来删除元素
 	// 本质：以被删除的元素为分界点，将前后两个部分的内存重新连接起来
+	// 删除某个元素：ｃ
+	slice11 := []string{"a", "b", "c", "d"}
+	slice11 = append(slice11[:2], slice11[3:]...)
+	fmt.Println(slice11)
+
 }
 
 func testMap() {
 	// 定义：map [keyType] valueType
 	// 其实和python中的字典类似 key-value结构
-	dic1 := make(map[string]int)
+	// 和切片一样，是引用类型，不初始化无法使用
+
+	// 声明没初始化。值就是为nil
+	var dic map[string]int
+	fmt.Println(dic == nil, dic)
+	// 初始化
+	dic1 := make(map[string]int, 8)
 	dic1["age"] = 23
 	dic1["money"] = 5201314
 	fmt.Println(dic1)
@@ -230,9 +271,9 @@ func main() {
 	// testSlice()
 
 	// map
-	// testMap()
+	testMap()
 
 	// list
-	testList()
+	// testList()
 
 }
