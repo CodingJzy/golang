@@ -78,7 +78,6 @@ func testString() {
 	str2 := "你好"
 	fmt.Println(len(str1))
 	fmt.Println(utf8.RuneCountInString(str2))
-	fmt.P
 
 	// 遍历
 	// ascii字符可以通过for循环根据索引来获取
@@ -130,8 +129,10 @@ func swap(a, b *int) {
 
 func testPtr() {
 	/*
+		三个概念：指针类型、指针地址、指针取值
+		指针类型：*int、*int64、*string
 		取地址：&
-		根据取出的地址取出地址指向的值：*
+		根据地址取值：*
 	*/
 
 	// 准备一个字符串类型
@@ -160,7 +161,7 @@ func testPtr() {
 
 }
 
-func testAlias()  {
+func testAlias() {
 	// 类型别名和类型定义的区别
 
 	// 为int类型取一个别名
