@@ -64,7 +64,7 @@ func anonymous() {
 	fmt.Println(a, b)
 }
 
-func testConst()  {
+func testConst() {
 	// 常量固定不变
 	const pi = 3.14159
 	const e = 2.71
@@ -72,7 +72,7 @@ func testConst()  {
 	// 批量声明
 	const (
 		pi1 = 1.1
-		e1 = 2.2
+		e1  = 2.2
 	)
 
 	// 枚举：go语言现阶段没有枚举，但是可以用常量配合iota来模拟枚举

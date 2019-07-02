@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 	fmt.Printf("go web 框架之echo安装")
 
 	install := `
@@ -32,7 +32,7 @@ func main()  {
 	git clone git@github.com:golang/sys.git
 	git clone git@github.com:golang/net.git
 	git clone git@github.com:golang/text.git
-	` 
+	`
 	fmt.Println(install)
 
 }
