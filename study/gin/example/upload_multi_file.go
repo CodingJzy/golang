@@ -27,7 +27,7 @@ func main() {
 			// 保存
 			index := fmt.Sprintf("%d、", num)
 			filePath := `D:\workspace\go\study\gin\example\file\` + index + file.Filename
-			_ := c.SaveUploadedFile(file, filePath)
+			_ = c.SaveUploadedFile(file, filePath)
 			num++
 		}
 		c.String(200, "upload complete...")
