@@ -18,6 +18,7 @@ func main() {
 
 	// 同时将日志写入文件和控制台
 	//gin.DefaultWriter = io.MultiWriter(f,os.Stdin)
+
 	r := gin.Default()
 
 	r.GET("/log", func(c *gin.Context) {
