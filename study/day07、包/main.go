@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang/study/day07/mylib"
+	"golang/study/day07、包/mylib"
 )
 
 // 1、全局变量
