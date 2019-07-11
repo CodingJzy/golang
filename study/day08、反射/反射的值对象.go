@@ -38,6 +38,9 @@ func testValue() {
 
 	// 打印
 	fmt.Println(getA1, getA2)
+
+	// 获取值的种类
+	fmt.Println(valueOfA.Kind())
 }
 
 func testStructValue() {

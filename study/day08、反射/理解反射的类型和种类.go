@@ -23,10 +23,15 @@ func testKind() {
 	typeOfCat1 := reflect.TypeOf(cat1)
 	typeOfCat2 := reflect.TypeOf(cat2)
 	typeOfZero := reflect.TypeOf(Zero)
-	fmt.Println(typeOfCat.Name(), typeOfCat.Kind())   //
+	fmt.Println(typeOfCat.Name(), typeOfCat.Kind())   //      ptr
 	fmt.Println(typeOfCat1.Name(), typeOfCat1.Kind()) // Cat struct
 	fmt.Println(typeOfCat2.Name(), typeOfCat2.Kind()) //      ptr
 	fmt.Println(typeOfZero.Name(), typeOfZero.Kind()) // Enum int
+
+	typeOfSlice := reflect.TypeOf([]int{1, 2, 3})
+	typeOfMap := reflect.TypeOf(map[string]string{})
+	fmt.Println(typeOfSlice, typeOfSlice.Name(), typeOfSlice.Kind())
+	fmt.Println(typeOfMap, typeOfMap.Name(), typeOfMap.Kind())
 }
 
 func testEle() {
@@ -141,7 +146,7 @@ func main() {
 	// 种类(Kind)指的是对象归属的品种
 	// Map、Slice、Chan 属于引用类型，使用起来类似于指针。但是在种类常量定义中仍然属于独立的种类，不属于Ptr。
 	// type A struct{} 定义的结构体属于 Struct种类。*A属于Ptr，是指针类型。
-	//testKind()
+	testKind()
 
 	// 指针与指针指向的元素
 	//testEle()
