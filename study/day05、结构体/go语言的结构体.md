@@ -175,5 +175,73 @@ func main() {
 
 ```
 
+### 结构体的初始化
+
+#### 键值对初始化
+
+类似于Python的关键字传参
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Person struct {
+	name string
+	age int
+	isLogin bool
+} 
+
+func main() {
+
+	p1 := Person{
+		name:"江子牙",
+		age:23,
+		isLogin:true,
+	}
+	
+	// {江子牙 23 true}
+	fmt.Println(p1)
+	
+}
+```
+
+#### 值的列表初始化
+
+类似于Python的位置参数
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Person struct {
+	name string
+	age int
+	isLogin bool
+}
+
+func main() {
+
+	p2 := Person{
+		"江子牙", 23, true,
+	}
+	// {江子牙 23 true}
+	fmt.Println(p2)
+}
+```
+
+使用此方式初始化时，值得注意的是：
+
+- 必须初始化结构体的所有字段
+- 初始化顺序必须和结构体声明时保持一致
+- 两种方式的初始化不能混用
+
+
+
 
 
