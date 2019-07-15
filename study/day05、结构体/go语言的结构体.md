@@ -12,10 +12,10 @@ Go语言中的基础数据类型可以表示一些事物的基本属性，但是
 
 ```go
 type 类型名 struct {
-    字段名 字段类型
-    字段名 字段类型
-    …
-}
+				字段1  字段1类型
+				字段2  字段2类型
+				字段3  字段3类型
+			}
 ```
 
 其中：
@@ -86,7 +86,7 @@ func main() {
 
 我们可以通过`.`来对结构体的字段进行赋值和取值操作。
 
-#### 指针类型的结构体
+#### 创建指针类型的结构体
 
 我们还可以通过使用`new`关键字对结构体进行实例化，得到的是结构体的地址。 格式如下：
 
@@ -140,6 +140,37 @@ func main() {
 	fmt.Println(p1)
 	// 指针：0xc00006e2d0      类型：*main.Person      值：&main.Person{name:"江子牙", city:"江西", age:23}
 	fmt.Printf("指针：%p\t类型：%T\t值：%#v", p1, p1, p1)
+}
+
+```
+
+#### 取结构体的地址实例化
+
+使用`&`对结构体进行取地址操作相当于对结构体进行了一次`new`操作。
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Person struct {
+	name string
+	city string
+	age  int
+}
+
+func main() {
+	p2 := &Person{}
+	p2.name = "江子牙"
+	p2.city = "江西"
+	p2.age = 23
+
+	// &{江子牙 江西 23}
+	fmt.Println(p2)
+	// 指针：0xc00006e2d0      类型：*main.Person      值：&main.Person{name:"江子牙", city:"江西", age:23}
+	fmt.Printf("指针：%p\t类型：%T\t值：%#v", p2, p2, p2)
 }
 
 ```
