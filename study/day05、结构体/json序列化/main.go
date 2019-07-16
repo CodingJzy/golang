@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//
+// 学生结构体
 type Student struct {
 	ID      int    `json:"id"`
 	Gender  string `json:"gender"`
