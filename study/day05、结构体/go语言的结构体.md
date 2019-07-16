@@ -583,7 +583,7 @@ import (
 	"fmt"
 )
 
-//
+// 学生结构体
 type Student struct {
 	ID      int
 	Gender  string
@@ -665,4 +665,3 @@ func main() {
 }
 
 ```
-
