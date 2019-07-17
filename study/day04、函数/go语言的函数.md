@@ -702,7 +702,6 @@ package main
 import "fmt"
 
 func testRecover() {
-	// 无论是代码运行错误还说抛出的宕机错误。还是主动触发的宕机错误，都可以配合defer和recover实现错误捕捉和恢复，让代码崩溃后继续运行
 
 	// 延时语句捕捉宕机
 	defer func() {
